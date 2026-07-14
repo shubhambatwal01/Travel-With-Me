@@ -15,6 +15,18 @@ const trips = [
   },
 ];
 
+exports.getHomePage = async (req, res) => {
+  res.json({
+    success: true,
+    message: "Travel With Me API is running.",
+    data: {
+      trip: "Sangamner to Pune",
+      vehicle: "Ertiga AC",
+      contacts: ["7720995877", "7385006993"],
+    },
+  });
+};
+
 exports.getTrips = async (req, res) => {
   try {
     return createResponse(res, 200, true, "Trips fetched successfully.", trips);

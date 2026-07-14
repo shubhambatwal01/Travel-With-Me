@@ -73,7 +73,7 @@ exports.confirmBooking = async (req, res) => {
     const booking = await Booking.findByIdAndUpdate(
       id,
       { status: "confirmed" },
-      { new: true },
+      { returnDocument: "after" },
     ).lean();
     if (!booking) return createResponse(res, 404, false, "Booking not found.");
     return createResponse(res, 200, true, "Booking confirmed.", booking);
@@ -94,7 +94,7 @@ exports.rejectBooking = async (req, res) => {
     const booking = await Booking.findByIdAndUpdate(
       id,
       { status: "rejected" },
-      { new: true },
+      { returnDocument: "after" },
     ).lean();
     if (!booking) return createResponse(res, 404, false, "Booking not found.");
     return createResponse(res, 200, true, "Booking rejected.", booking);
