@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Admin({ onClose }) {
+function Admin({ onClose }) {
   const [dashboard, setDashboard] = useState(null);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -121,7 +121,7 @@ export default function Admin({ onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-auto bg-slate-900/40 p-6">
+    <div className="bg-slate-900/40 p-6">
       <div className="mx-auto max-w-5xl rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-slate-200 text-slate-900">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold text-slate-900">Admin Dashboard</h2>
@@ -164,37 +164,6 @@ export default function Admin({ onClose }) {
 
         <div className="mt-6">
           {!loggedIn ? (
-            // <div className="grid gap-2 sm:grid-cols-3">
-            //   <input
-            //     placeholder="username"
-            //     value={credentials.username}
-            //     onChange={(e) =>
-            //       setCredentials((prev) => ({
-            //         ...prev,
-            //         username: e.target.value,
-            //       }))
-            //     }
-            //     className="rounded border px-3 py-2"
-            //   />
-            //   <input
-            //     placeholder="password"
-            //     type="password"
-            //     value={credentials.password}
-            //     onChange={(e) =>
-            //       setCredentials((prev) => ({
-            //         ...prev,
-            //         password: e.target.value,
-            //       }))
-            //     }
-            //     className="rounded border px-3 py-2"
-            //   />
-            //   <button
-            //     onClick={handleLogin}
-            //     className="rounded bg-sky-600 px-4 py-2 text-white"
-            //   >
-            //     Login
-            //   </button>
-            // </div>
             <form
               className="grid gap-2 sm:grid-cols-3"
               onSubmit={(e) => {
@@ -337,3 +306,5 @@ export default function Admin({ onClose }) {
     </div>
   );
 }
+
+export default Admin;
